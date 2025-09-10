@@ -1,11 +1,11 @@
 # isa-super-vga
-Trident TVGA9000i based Super VGA board
+Trident TVGA9000i-based Super VGA board
 
 ## Introduction
 
 The ISA Super VGA card is based on the Trident TVGA9000i Super VGA controller IC. It offers excellent compatibility with the original IBM VGA, as well as a good emulation of older CGA, EGA, Hercules and MDA adapters. The ISA Super VGA card was designed to be used with the [Xi 8088 Processor Board](https://github.com/skiselev/xi_8088), but it also works in IBM PC/XT and their clones. It will work in 16-bit ISA slots of AT-compatible computers, but its performance will be inferior to 16-bit VGA cards.
 
-Note: PCB Version 1.0 requires a rework for compatibility with the original IBM PC and IBM XT computers, please see the Errata section below. This errata was fixed in the PCB Version 1.1
+Note: PCB Version 1.0 requires a rework for compatibility with the original IBM PC and IBM XT computers. Please see the Errata section below. This errata was fixed in the PCB Version 1.1
 
 ![ISA SVGA V0.9 Assembled Board](images/ISA_SVGA-Board-800px.jpg)
 
@@ -57,14 +57,20 @@ Bracket            |           | ISA card bracket - Keystone 9200-1             
 
 #### Display Type Detection
 
-* TVGA9000i VGA controller uses VGA connector pin 12 as **MONITOR** signal to detect the of type of the display. Older, pre-[DDC](https://en.wikipedia.org/wiki/Display_Data_Channel) displays made approximately until 1995, have that signal either unconnected - for color monitors, or grounded - for monochrome monitors. Newer displays use that signal as the DDC/SDA signal. Unfortunately, it can result in TVGA9000i incorrectly detecting the monitor as monochrome. If you're not planning to use monochrome monitor, you can skip FB6 and C17 components. In this case R6 will be pulling the MONITOR signal up, and TVGA9000i will detect the display as a color one.
+* TVGA9000i VGA controller uses VGA connector pin 12 as **MONITOR** signal to detect the type of the display. Older, pre-[DDC](https://en.wikipedia.org/wiki/Display_Data_Channel) displays made approximately until 1995, have that signal either unconnected - for color monitors, or grounded - for monochrome monitors. Newer displays use that signal as the DDC/SDA signal. Unfortunately, it can result in TVGA9000i incorrectly detecting the monitor as monochrome. If you're not planning to use a monochrome monitor, you can skip FB6 and C17 components. In this case, R6 will be pulling the MONITOR signal up, and TVGA9000i will detect the display as a color one.
 
 ## Changes
+
+### Version 1.10
+
+* PCP fitted to 10x10cm limits
+* a few power lines rerouted
+* some silkscreen edited
 
 ### Version 1.1
 
 * Fix ALE errata. ALE signal is now connected to 5V
-* Slightly move VGA DE-9F connector (about 1.27 mm up and 0.8 mm back) to better comply with ISA card size and bracket placement specifications
+* Slightly move VGA DE-15F connector (about 1.27 mm up and 0.8 mm back) to better comply with ISA card size and bracket placement specifications
 
 ### Version 1.0
 
